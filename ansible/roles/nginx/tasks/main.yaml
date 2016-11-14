@@ -1,17 +1,17 @@
-# - name: Installs nginx package
-#   apt: 
-#     name: nginx
-#     state: present
-# - name: create required directories
-#   file: dest={{ item }} state=directory
-#   with_items:
-#       - "{{ letsencrypt_path }}"
-#       - "{{ letsencrypt_webroot }}"
-# - name: download certbot
-#   get_url:
-#     url: https://dl.eff.org/certbot-auto
-#     dest: /usr/local/sbin/certbot-auto
-#     mode: 0755
+- name: Installs nginx package
+  apt: 
+    name: nginx
+    state: present
+- name: create required directories
+  file: dest={{ item }} state=directory
+  with_items:
+      - "{{ letsencrypt_path }}"
+      - "{{ letsencrypt_webroot }}"
+- name: download certbot
+  get_url:
+    url: https://dl.eff.org/certbot-auto
+    dest: /usr/local/sbin/certbot-auto
+    mode: 0755
 - name: Install letsencrypt cert
   command: /usr/local/sbin/certbot-auto certonly -a webroot --webroot-path={{letsencrypt_webroot}} -d {{domain}} --agree-tos --redirect --expand --text --email {{email}}
 
