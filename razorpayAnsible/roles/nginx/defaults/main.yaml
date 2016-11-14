@@ -1,0 +1,4 @@
+letsencrypt_path: /opt/letsencrypt
+letsencrypt_webroot: /usr/share/nginx/html
+domain: kasinath.razorpay.in
+email: kasinathkp@gmail.com

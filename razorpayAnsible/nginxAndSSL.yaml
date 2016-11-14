@@ -1,0 +1,8 @@
+- hosts: all
+  gather_facts: False
+  remote_user: kasinath
+  sudo: yes
+  roles:
+    - { 
+    role: nginx 
+  }

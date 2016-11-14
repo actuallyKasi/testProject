@@ -1,0 +1,18 @@
+server {
+
+  listen 443 ssl;
+  server_name {{domain}} www.{{domain}};
+  ssl_certificate /etc/letsencrypt/live/{{domain}}/fullchain.pem;
+  ssl_certificate_key /etc/letsencrypt/live/{{domain}}/privkey.pem;
+
+  root /usr/share/nginx/html;
+  index index.html index.htm;
+
+
+  server_name localhost;
+  location ~ /.well-known {
+                allow all;
+        }
+  location / {
+  }
+}

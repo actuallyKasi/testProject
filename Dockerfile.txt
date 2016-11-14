@@ -1,0 +1,9 @@
+FROM razorpay/devops:latest
+RUN apk update
+RUN apk add bash
+ENV MYSQL_HOST="104.199.167.114"
+ENV MYSQL_USER="razor"
+ENV MYSQL_PASS="razor"
+ENV MYSQL_PORT="razor"
+EXPOSE 8080
+#CMD bash -C '/rzp-interview';'bash'
